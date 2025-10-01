@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>极简导航 - 你的生产力工具箱</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">🚀 极简导航</h1>
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="搜索网站或工具..." onkeypress="handleSearch(event)">
+                    <button onclick="searchSite()">🔍</button>
+                </div>
+                <div class="time-display" id="current-time"></div>
+            </div>
+        </header>
+
+        <!-- 主要内容 -->
+        <main class="main">
+            <!-- 开发工具 -->
+            <section class="category">
+                <h2 class="category-title">💻 开发工具</h2>
+                <div class="card-grid">
+                    <div class="card" onclick="openLink('https://chat.deepseek.com')">
+                        <div class="card-icon">🤖</div>
+                        <div class="card-content">
+                            <h3>DeepSeek Chat</h3>
+                            <p>AI编程助手</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://github.com')">
+                        <div class="card-icon">🐙</div>
+                        <div class="card-content">
+                            <h3>GitHub</h3>
+                            <p>代码托管平台</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://bgithub.xyz')">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-content">
+                            <h3>GitHub镜像</h3>
+                            <p>备用访问地址</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://code.visualstudio.com')">
+                        <div class="card-icon">🔧</div>
+                        <div class="card-content">
+                            <h3>VS Code</h3>
+                            <p>代码编辑器</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://ollama.ai')">
+                        <div class="card-icon">🦙</div>
+                        <div class="card-content">
+                            <h3>Ollama</h3>
+                            <p>本地AI模型</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 下载工具 -->
+            <section class="category">
+                <h2 class="category-title">📥 下载工具</h2>
+                <div class="card-grid">
+                    <div class="card" onclick="openLink('https://www.internetdownloadmanager.com')">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-content">
+                            <h3>IDM</h3>
+                            <p>下载管理器</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://geekuninstaller.com')">
+                        <div class="card-icon">🧹</div>
+                        <div class="card-content">
+                            <h3>Geek Uninstaller</h3>
+                            <p>软件卸载工具</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://www.voidtools.com')">
+                        <div class="card-icon">🔍</div>
+                        <div class="card-content">
+                            <h3>Everything</h3>
+                            <p>文件搜索工具</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://www.bandisoft.com')">
+                        <div class="card-icon">📦</div>
+                        <div class="card-content">
+                            <h3>BandZip</h3>
+                            <p>压缩解压工具</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 系统工具 -->
+            <section class="category">
+                <h2 class="category-title">⚙️ 系统工具</h2>
+                <div class="card-grid">
+                    <div class="card" onclick="runScript('system-cleanup')">
+                        <div class="card-icon">🧼</div>
+                        <div class="card-content">
+                            <h3>系统清理</h3>
+                            <p>运行清理脚本</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://www.huorong.cn')">
+                        <div class="card-icon">🛡️</div>
+                        <div class="card-content">
+                            <h3>火绒安全</h3>
+                            <p>良心大众安全防护软件</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://next.itellyou.cn')">
+                        <div class="card-icon">💿</div>
+                        <div class="card-content">
+                            <h3>MSDN I Tell You</h3>
+                            <p>原版系统下载</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 社交娱乐 -->
+            <section class="category">
+                <h2 class="category-title">🎮 社交娱乐</h2>
+                <div class="card-grid">
+                    <div class="card" onclick="openLink('https://www.bilibili.com')">
+                        <div class="card-icon">📺</div>
+                        <div class="card-content">
+                            <h3>哔哩哔哩</h3>
+                            <p>视频网站</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://filehelper.weixin.qq.com/?from=webapp')">
+                        <div class="card-icon">💬</div>
+                        <div class="card-content">
+                            <h3>微信文件传输助手网页版</h3>
+                            <p>文件传输助手（原来的微信网页版因为某些原因已被关闭）</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://weixin.qq.com')">
+                        <div class="card-icon">📱</div>
+                        <div class="card-content">
+                            <h3>微信客户端</h3>
+                            <p>下载桌面版</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 邮箱办公 -->
+            <section class="category">
+                <h2 class="category-title">📧 邮箱办公</h2>
+                <div class="card-grid">
+                    <div class="card" onclick="openLink('https://outlook.live.com')">
+                        <div class="card-icon">📮</div>
+                        <div class="card-content">
+                            <h3>Outlook</h3>
+                            <p>微软邮箱</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://mail.163.com')">
+                        <div class="card-icon">✉️</div>
+                        <div class="card-content">
+                            <h3>网易邮箱</h3>
+                            <p>163邮箱</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://www.microsoft.com/microsoft-365')">
+                        <div class="card-icon">📊</div>
+                        <div class="card-content">
+                            <h3>Microsoft Office</h3>
+                            <p>办公套件</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 其他软件 -->
+            <section class="category">
+                <h2 class="category-title">🎯 其他软件</h2>
+                <div class="card-grid">
+                    <div class="card" onclick="openLink('https://github.com/PCL-Studio/PCL2')">
+                        <div class="card-icon">🎮</div>
+                        <div class="card-content">
+                            <h3>PCL启动器</h3>
+                            <p>Minecraft启动器（JAVA 大众启动器 不可联机 建议与LuncherX配合使用）</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://luncherx.com')">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-content">
+                            <h3>LuncherX</h3>
+                            <p>Minecraft启动器（JAVA 可以联机 建议与PCL配合使用）</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://obsproject.com')">
+                        <div class="card-icon">🎥</div>
+                        <div class="card-content">
+                            <h3>OBS Studio</h3>
+                            <p>小众良心直播录制软件</p>
+                        </div>
+                    </div>
+                    <div class="card" onclick="openLink('https://embarcadero.com')">
+                        <div class="card-icon">💻</div>
+                        <div class="card-content">
+                            <h3>Dev C++ 分支维护版</h3>
+                            <p>C++开发环境分支 与原版几乎没有差别 但是还在不定期维护</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 免责声明 -->
+        <footer class="footer">
+            <div class="disclaimer">
+                <h3>📝 免责声明</h3>
+                <p>本导航站仅提供网址链接和工具整合，所有外部链接的版权归原网站所有。</p>
+                <p>系统清理脚本仅供学习使用，请在专业人士指导下操作，使用者需自行承担风险。</p>
+                <p>GitHub镜像站为第三方服务，请遵守相关法律法规使用。</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
